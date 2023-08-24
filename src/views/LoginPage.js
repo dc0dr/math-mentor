@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import '../styles/Login.scss';
 import authService from "../handles/authService";
@@ -20,7 +20,6 @@ function LoginPage() {
   
   
   const submitHandler = async (e) => {
-    
     e.preventDefault();
     
     try {
@@ -91,6 +90,8 @@ function LoginPage() {
               Password <br />
               <input type="password" value={password} onChange={handlePasswordChange} minLength="8" />
             </label>
+            
+            <p>Don't have an account? <Link to={'/sign-up'} id='register-link'> Register </Link> </p>
             
             <br />
             <button type="submit" id="login-btn">Login</button>

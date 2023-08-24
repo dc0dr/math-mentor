@@ -52,12 +52,6 @@ function SignUpPage() {
           <div className='Form-div'>
             <form onSubmit={handleSubmit}>
               <label>
-                Email <br />
-                <input type="email" value={email} onChange={handleEmailChange}/>
-              </label>
-              <br />
-              
-              <label>
                 First Name <br />
                 <input type="text" value={firstName} onChange={handleFirstNameChange} />
               </label>
@@ -66,6 +60,12 @@ function SignUpPage() {
               <label>
                 Last Name <br />
                 <input type="text" value={lastName} onChange={handleLastNameChange} />
+              </label>
+              <br />
+              
+              <label>
+                Email <br />
+                <input type="email" value={email} onChange={handleEmailChange}/>
               </label>
               <br />
               
