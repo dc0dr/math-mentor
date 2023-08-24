@@ -5,22 +5,19 @@ const authService = {
   
     register: async (email, password) => {
       try {
-        await createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            console.log(user)
-            //localStorage.setItem('user', JSON.stringify(user));
-            // ...
-          });
+        const userCredential = await  createUserWithEmailAndPassword(auth, email, password)
+        const user = userCredential.user;
+        console.log(user)
+        //localStorage.setItem('user', JSON.stringify(user));
+        // ...
       } catch (error) {
-        const errorCode = error.code;
+        //const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(errorMessage);
       }
     },
     
-    login: (email, password) => {
+    login: async (email, password) => {
       return new Promise(async(resolve, reject) => {
         try {
           const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -34,8 +31,18 @@ const authService = {
           reject(error);
         }
       });
+    },
+  
+    logout: async () => {
+      return new Promise(async(resolve, reject) => {
+        try {
+          await auth.signOut();
+          resolve(true)
+        } catch (error) {
+          reject(error);
+        }
+      });
     }
-
 }
 
 export default authService;
