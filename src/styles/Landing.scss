@@ -1,0 +1,81 @@
+
+.App::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/homepage-background.jpg);
+  opacity: 0.31;
+  background-size: cover;
+  background-position: center;
+}
+
+.Navigation {
+  position: relative;
+  top: -20vh; right: -40vw;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  
+  p, a {
+    font-size: 20px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 20px 0px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color:#ffffff;
+  }
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.Text-div {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  align-self: center;
+}
+
+
+#btn-1, #btn-2 {
+  position: relative;
+  background-color: #00A0FB;
+  color: #ffffff;
+  border: 1px solid #282c34;
+  border-radius: 7px;
+  padding: 12px 40px 12px 40px;
+  margin: 30px;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+  font-size: 31px;
+  cursor: pointer;
+}
+
+h2 {
+  position: relative;
+  color: #00A0FB;
+  font-size: 100px;
+  line-height: 0px;
+  font-weight: 800;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+

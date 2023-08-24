@@ -1,0 +1,65 @@
+.Home {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+}
+
+#sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-image: url(../assets/homepage-background.jpg);
+  opacity: 0.31;
+  background-size: cover;
+  background-position: right;
+}
+
+#sidebar {
+  width: 30vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+}
+#sidebar #navbar-items {
+  position: relative;
+  margin-left: 2vw;
+  font-family: "Satoshi", sans-serif;
+}
+#sidebar #navbar-items a {
+  text-decoration: none;
+  color: black;
+  width: 20vw;
+  height: 10vh;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 10px;
+  padding-left: 10px;
+  justify-content: left;
+}
+#sidebar #navbar-items :hover {
+  background-color: rgb(193, 140, 187);
+}
+#sidebar h2 {
+  position: relative;
+  font-size: 50px;
+}
+
+.active {
+  background-color: rgb(193, 140, 187);
+}
+
+#main-screen {
+  width: 70vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=Home.css.map */

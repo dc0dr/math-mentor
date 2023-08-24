@@ -1,0 +1,73 @@
+.Signup-col {
+  width: 50vw;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.Signup-col p {
+  font-size: 50px;
+  line-height: 30vh;
+  margin: 0 0 -170px 0;
+  padding: 0 0 0 0;
+  color: #282c34;
+  text-align: center;
+  font-family: "Satoshi", sans-serif;
+}
+
+.Form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0 0 0;
+  padding: 0 0 0 0;
+}
+.Form-div label {
+  font-family: "Satoshi", sans-serif;
+  display: inline-block;
+}
+.Form-div input[type=email] {
+  margin: 0 0 0 0;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+  font-family: "Satoshi", sans-serif;
+  font-size: 15px;
+  border: 1px solid #282c34;
+  border-radius: 15px;
+}
+.Form-div input[type=password] {
+  margin: 0 0 0 0;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+  font-family: "Satoshi", sans-serif;
+  font-size: 15px;
+  border: 1px solid #282c34;
+  border-radius: 15px;
+}
+.Form-div input[type=text] {
+  margin: 0 0 0 0;
+  padding: 20px;
+  width: 300px;
+  height: 20px;
+  font-family: "Satoshi", sans-serif;
+  font-size: 15px;
+  border: 1px solid #282c34;
+  border-radius: 15px;
+}
+.Form-div #signup-btn {
+  background-color: #00A0FB;
+  color: #ffffff;
+  border: 1px solid #282c34;
+  border-radius: 7px;
+  padding: 12px 40px 12px 40px;
+  margin: 20px;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=Signup.css.map */

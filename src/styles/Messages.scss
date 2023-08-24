@@ -1,0 +1,72 @@
+@import "chat-overrides";
+@import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+
+.Messages {
+  display: flex;
+  height: 100vh;
+  width: 70vw;
+  font-family: 'Satoshi', sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  div[id='pfp']{
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    max-height: 10vh;
+    max-width: 5vw;
+    border-radius: 20vh;
+    background-color: rgb(201, 197, 197);
+  }
+
+  div{
+    p{
+      font-family: inherit;
+    }
+  }
+
+  div[id='input-div']{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: -40vh;
+    left: 0;
+    width: 50vw;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 4px;
+    cursor: text;
+
+
+    #text-area {
+      background-color: transparent;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 1em;
+      padding: 20px;
+      //overflow-x: hidden;
+      //overflow-y: auto;
+      resize: none;
+      width: inherit;
+      overflow: auto;
+    }
+
+    #text-area::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    #chat-btn {
+      position: relative;
+      top: -0.8vh;
+      border-radius: 20px;
+      width: 5vw;
+      height: 5vh;
+      margin-left: 2vw;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+  }
+
+}
