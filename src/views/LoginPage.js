@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.scss';
 import authService from "../handles/authService";
 
 function LoginPage() {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   
   const navigate = useNavigate();
   
@@ -19,15 +19,36 @@ function LoginPage() {
   }
   
   
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
+    
     e.preventDefault();
     
     try {
-      authService.login(email, password).then(r => console.log(r));
-      navigate('/home')
+      const response = await authService.login(email, password);
+      if (response) {
+        console.log("Authenticated");
+        navigate('/home')
+      } else {
+        return null;
+      }
     } catch (error) {
-      //setError(error.message);
-      console.log(error.message);
+      if (error.code) {
+        // Firebase Authentication error codes
+        switch (error.code) {
+          case "auth/user-not-found":
+            setError("User not found. Please check your email.");
+            break;
+          case "auth/wrong-password":
+            setError("Incorrect password. Please try again.");
+            break;
+          // Add more cases for other error codes as needed
+          default:
+            setError("An error occurred during authentication.");
+            break;
+        }
+      } else {
+        setError(error.message); // Handle non-Firebase errors
+      }
     }
   }
   
@@ -74,6 +95,10 @@ function LoginPage() {
             <br />
             <button type="submit" id="login-btn">Login</button>
           </form>
+          
+          <div id="login-error-div">
+            {error && <p>{error}</p>}
+          </div>
         </div>
       </div>
     </div>
