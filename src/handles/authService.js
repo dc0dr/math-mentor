@@ -1,13 +1,11 @@
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../models/Firebase";
 
 const authService = {
   
     register: async (email, password) => {
       try {
-        const userEmail = email;
-        const userPassword = password;
-        await createUserWithEmailAndPassword(auth, userEmail, userPassword)
+        await createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
@@ -22,24 +20,22 @@ const authService = {
       }
     },
     
-    login: async (email, password) => {
-      try {
-        const userEmail = email;
-        const userPassword = password;
-        await signInWithEmailAndPassword(auth, userEmail, userPassword)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            //localStorage.setItem('user', JSON.stringify(user));
-            // ...
-          });
-      } catch (error) {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      }
+    login: (email, password) => {
+      return new Promise(async(resolve, reject) => {
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          //console.log(user);
+          resolve(user)
+        } catch (error) {
+          //const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          
+          reject(error);
+        }
+      });
     }
-    
 
 }
 

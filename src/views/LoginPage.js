@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.scss';
 import authService from "../handles/authService";
 
 function LoginPage() {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   
   const navigate = useNavigate();
   
@@ -19,16 +19,22 @@ function LoginPage() {
   }
   
   
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
+    
     e.preventDefault();
     
     try {
-      authService.login(email, password).then(r => console.log(r));
-      navigate('/home')
+      const response = await authService.login(email, password);
+      if (response) {
+        console.log("Authenticated");
+        navigate('/home')
+      } else {
+        //setError(response.message);
+      }
     } catch (error) {
       setError(error.message);
-      // console.log(error.message);
-      return;
+      //console.log(error.message);
+      //return;
     }
   }
   
@@ -74,9 +80,8 @@ function LoginPage() {
             
             <br />
             <button type="submit" id="login-btn">Login</button>
-            
-            {error && <p>{error}</p>}
           </form>
+          {error && <p>{error}</p>}
         </div>
       </div>
     </div>
