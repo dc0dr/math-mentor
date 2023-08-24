@@ -31,7 +31,6 @@ const authService = {
           //const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorMessage);
-          
           reject(error);
         }
       });

@@ -29,12 +29,26 @@ function LoginPage() {
         console.log("Authenticated");
         navigate('/home')
       } else {
-        //setError(response.message);
+        return null;
       }
     } catch (error) {
-      setError(error.message);
-      //console.log(error.message);
-      //return;
+      if (error.code) {
+        // Firebase Authentication error codes
+        switch (error.code) {
+          case "auth/user-not-found":
+            setError("User not found. Please check your email.");
+            break;
+          case "auth/wrong-password":
+            setError("Incorrect password. Please try again.");
+            break;
+          // Add more cases for other error codes as needed
+          default:
+            setError("An error occurred during authentication.");
+            break;
+        }
+      } else {
+        setError(error.message); // Handle non-Firebase errors
+      }
     }
   }
   
@@ -81,7 +95,10 @@ function LoginPage() {
             <br />
             <button type="submit" id="login-btn">Login</button>
           </form>
-          {error && <p>{error}</p>}
+          
+          <div id="login-error-div">
+            {error && <p>{error}</p>}
+          </div>
         </div>
       </div>
     </div>

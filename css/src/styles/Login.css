@@ -128,4 +128,17 @@ form {
   cursor: pointer;
 }
 
+#login-error-div {
+  display: flex;
+}
+#login-error-div p {
+  font-size: 20px;
+  line-height: 10vh;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  color: #ff0000;
+  text-align: center;
+  font-family: "Satoshi", sans-serif;
+}
+
 /*# sourceMappingURL=Login.css.map */
