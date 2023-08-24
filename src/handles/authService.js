@@ -1,4 +1,4 @@
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import {auth} from "../models/Firebase";
 
 const authService = {
@@ -30,14 +30,13 @@ const authService = {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            console.log(user)
             //localStorage.setItem('user', JSON.stringify(user));
             // ...
           });
       } catch (error) {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        console.log(errorMessage);
       }
     }
     

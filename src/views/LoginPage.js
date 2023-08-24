@@ -6,7 +6,7 @@ import authService from "../handles/authService";
 function LoginPage() {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const [error, setError] = useState('');
+  const [error, setError] = useState('');
   
   const navigate = useNavigate();
   
@@ -26,8 +26,9 @@ function LoginPage() {
       authService.login(email, password).then(r => console.log(r));
       navigate('/home')
     } catch (error) {
-      //setError(error.message);
-      console.log(error.message);
+      setError(error.message);
+      // console.log(error.message);
+      return;
     }
   }
   
@@ -73,6 +74,8 @@ function LoginPage() {
             
             <br />
             <button type="submit" id="login-btn">Login</button>
+            
+            {error && <p>{error}</p>}
           </form>
         </div>
       </div>
