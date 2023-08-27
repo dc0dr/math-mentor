@@ -1,0 +1,36 @@
+.Lesson {
+  display: flex;
+  height: 100vh;
+  width: 70vw;
+  font-family: "Satoshi", sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Lesson button {
+  background-color: #00A0FB;
+  color: #ffffff;
+  border: 1px solid #282c34;
+  border-radius: 7px;
+  padding: 12px 40px 12px 40px;
+  margin: 20px;
+  font-family: "Satoshi", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#content {
+  width: 70vw;
+}
+#content pre {
+  display: flex;
+  font-size: 1em;
+  font-family: "Satoshi", sans-serif;
+  margin-left: 1.5vw;
+  word-break: break-all;
+  text-align: left;
+  white-space: break-spaces;
+}
+
+/*# sourceMappingURL=Lesson.css.map */
