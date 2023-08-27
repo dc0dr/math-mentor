@@ -1,5 +1,4 @@
 import "../../styles/Messages.scss";
-//import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css'
 import {
   MainContainer,
   ChatContainer,
@@ -10,7 +9,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import { useState } from "react";
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 function MessagesPage() {
   const [typing, setTyping] = useState(false);

@@ -5,6 +5,7 @@ import LandingPage from './views/LandingPage';
 import LoginPage from './views/LoginPage';
 import SignUpPage from './views/SignUpPage';
 import HomePage from './views/HomePage';
+import StudentPage from "./views/StudentPage";
 
 import CoursesPage from './views/navbar/CoursesPage';
 import DashboardPage from './views/navbar/DashboardPage';
@@ -15,22 +16,24 @@ import AssessmentPageOne from './views/assessment/AssessmentPageOne';
 import AssessmentPageTwo from './views/assessment/AssessmentPageTwo';
 import AssessmentPageThree from './views/assessment/AssessmentPageThree';
 
+
 import ErrorPage from './models/ErrorPage';
+import GenerateLessonPlan from "./views/GenerateLessonPlan";
+import LessonPlan from "./views/secondaryNavbar/LessonPlan";
+import AssessmentPageFour from "./views/assessment/AssessmentPageFour";
+import AssessmentPageFive from "./views/assessment/AssessmentPageFive";
+import AssessmentPageSix from "./views/assessment/AssessmentPageSix";
 
 const router = createBrowserRouter([
   { path: '/', element: <LandingPage /> },
   { path: '/login', element: <LoginPage /> },
   { path: '/sign-up', element: <SignUpPage /> },
-  { path: '/assessment/',
-    element: <AssessmentPageOne />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: 'assessment-2',
-        element: <AssessmentPageTwo />
-      },
-    ]
-  },
+  { path: '/assessment-one', element: <AssessmentPageOne /> },
+  { path: '/assessment-two', element: <AssessmentPageTwo /> },
+  { path: '/assessment-three', element: <AssessmentPageThree /> },
+  { path: '/assessment-four', element: <AssessmentPageFour />},
+  { path: '/assessment-five', element: <AssessmentPageFive />},
+  { path: '/assessment-six', element: <AssessmentPageSix />},
   { 
     path: '/home/', 
     element: <HomePage />,
@@ -54,6 +57,17 @@ const router = createBrowserRouter([
       }
     ],
   },
+  { path: '/student/',
+    element: <StudentPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: 'lesson-plan',
+        element: <LessonPlan />
+      }
+    ]
+  },
+  { path: '/generate-lesson-plan', element: <GenerateLessonPlan /> }
 ]);
 
 function App() {
