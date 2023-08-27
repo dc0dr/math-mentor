@@ -5,7 +5,9 @@ import {auth} from "../models/Firebase";
 import axios from 'axios';
 import '../styles/Lesson.scss'
 
+
 function GenerateLessonPlan () {
+  
   const [userResponses, setUserResponses] = useState('');
   const [lessonPlan, setLessonPlan] = useState('');
   const [learningMethod, setLearningMethod] = useState("");
@@ -18,7 +20,7 @@ function GenerateLessonPlan () {
   
   const user = auth.currentUser?.uid;
   
-  const API_KEY = "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";
+  let API_KEY = process.env.REACT_APP_API_KEY;
   
   useEffect(() => {
     const fetchData = async () => {
