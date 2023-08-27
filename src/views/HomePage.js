@@ -2,7 +2,7 @@ import { Outlet, Link} from 'react-router-dom';
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Home.scss';
-import authService from "../handles/authService";
+import authService from "../middleware/authService";
 
 function HomePage() {
   

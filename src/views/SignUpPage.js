@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState} from 'react';
 import '../styles/Signup.scss';
-import handleSubmit from "../handles/handleSubmit";
-import authService from "../handles/authService";
+import authService from "../middleware/authService";
+import handleRegister from "../handlers/handleRegister";
 
 function SignUpPage() {
   const [email, setUsername] = useState('');
@@ -28,10 +28,11 @@ function SignUpPage() {
     setLastName(e.target.value);
   }
   
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    authService.register(email, password).then(r => console.log(r));
-    navigate('/home')
+    await authService.register(email, password).then(r => console.log(r));
+    await handleRegister(email, firstName, lastName).then(r => console.log(r));
+    navigate('/assessment-one')
   }
   
   
@@ -40,7 +41,7 @@ function SignUpPage() {
         <div className='Desc-col'>
           <div className='Desc-div'>
             <h2>MathMentor</h2>
-            <p>MathMentor is an online school system for upper primary level</p>
+            <p>MathMentor is an online school system for JHS</p>
             <p>students in Ghana to help them in their studies in relation to</p>
             <p>mathematics. The system follows the syllabus of GES.</p>
           </div>

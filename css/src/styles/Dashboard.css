@@ -32,6 +32,9 @@
 .Dashboard-Content p {
   font-size: 2em;
 }
+.Dashboard-Content #chat-me-link {
+  text-decoration: none;
+}
 
 div[id=pfp] {
   position: absolute;
