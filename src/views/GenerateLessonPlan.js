@@ -16,9 +16,9 @@ function GenerateLessonPlan () {
   const [preferences, setPreferences] = useState("");
   const [gradeLevel, setGradeLevel] = useState("");
   
-  const user = "Wzlx59mYQRcJXshux69PH5aOKsE3"
+  const user = auth.currentUser?.uid;
   
-  const API_KEY = "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";
+  const API_KEY = "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";
   
   useEffect(() => {
     const fetchData = async () => {
